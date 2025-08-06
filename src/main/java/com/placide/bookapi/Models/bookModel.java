@@ -1,10 +1,18 @@
 package com.placide.bookapi.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "books")
 public class bookModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotBlank(message = "Title cannot be blank")
     private String title;
      @NotBlank(message = "Author cannot be blank")
@@ -18,14 +26,15 @@ public class bookModel {
         // Default constructor
     }
 
-    public bookModel(String title, String author, String isbn, String publicationDate) {
+    public bookModel(Long id, String title, String author, String isbn, String publicationDate) {
+        this.id=id;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.publicationDate = publicationDate;
     }
 
-    public String getTitle() {
+    public String getTitle() {  
         return title;
     }
 
@@ -55,6 +64,14 @@ public class bookModel {
 
     public void setPublicationDate(String publicationDate) {
         this.publicationDate = publicationDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
