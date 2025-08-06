@@ -56,8 +56,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>postgres</artifactId>
+            <version>3.22.0-RELEASE</version>
+        </dependency>
     </dependencies>
-
+            
     <build>
         <plugins>
             <plugin>
